@@ -49,7 +49,6 @@ const RandomChar = () => {
                     Or choose another one
                 </p>
                 <button onClick={updateChar} className="button__moving">
-                    {/* <div className="inner">try it</div> */}
                     <span></span>
                     <span></span>
                     <span></span>

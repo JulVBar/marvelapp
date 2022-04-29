@@ -4,7 +4,6 @@ const useMarvelService = () => {
     const {loading, request, error, clearError} = useHttp();
 
     const _apiBase = 'https://gateway.marvel.com:443/v1/public/';
-    // ЗДЕСЬ БУДЕТ ВАШ КЛЮЧ, ЭТОТ КЛЮЧ МОЖЕТ НЕ РАБОТАТЬ
     const _marvelKey = process.env.REACT_APP_MARVEL_API_KEY;
     const _apiKey = `apikey=${_marvelKey}`;
     const _baseOffset = 210;

@@ -1,13 +1,3 @@
-
-//Если доступ нужен к статичному файлу из папки public
-//плохая редкая практика
-
-// const ErrorMessage = () => {
-//     return (
-//         <img src={process.env.PUBLIC_URL + '/error.gif'} />
-//     )
-// }
-
 import img from './error.gif';
 
 const ErrorMessage = () => {
