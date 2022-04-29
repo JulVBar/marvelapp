@@ -6,15 +6,18 @@
     text-align: center;
     text-transform: uppercase;
     font-size: 14px;
+    letter-spacing: 3px;
     transition: 0.3s transform;
     border: none;
     background-color: transparent;
     cursor: pointer;
+
     &__long {
         display: block;
         width: 170px;
         margin: 45px auto 0 auto;
     }
+
     .inner {
         position: relative;
         background-color: $main-color;
@@ -32,6 +35,7 @@
             top: -10px;
             transition: none;
         }
+
         &::after {
             border-color: $main-color transparent;
             border-style: solid;
@@ -45,11 +49,13 @@
             transition: none;
         }
     }
+
     &__main, &__secondary {
         &:hover {
             color: #fff;
         }
     }
+
     &__secondary {
         .inner {
             background-color: $grey;
@@ -63,32 +69,141 @@
             }
         }
     }
+
     &::before {
         content: '';
         display: block;
         height: 10px;
         margin-left: 10px;
         transition: none;
-
     }
+
     &::after {
         content: '';
         display: block;
         height: 10px;
         margin-right: 10px;
         transition: none;
-
     }
+
     &.button__main::before, &.button__main::after {
         background-color: $main-color;
     }
+
     &.button__secondary::before, &.button__secondary::after {
         background-color: $grey;
     }
+
     &:hover {
         transform: translateY(-5px);
     }
+
     &:disabled {
         filter: grayscale(.8);
+    }
+}
+
+.button__moving {
+    position: relative;
+    min-width: 101px;
+    padding: 10px 20px;
+    color: $blue;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    letter-spacing: 3px;
+    cursor: pointer;
+    background-color: transparent;
+    text-align: center;
+    transition: 0.3s transform;
+    border: none;
+
+    &:hover {
+        background: $blue;
+        color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 5px $blue,
+                    0 0 25px $blue,
+                    0 0 50px $blue,
+                    0 0 100px $blue;
+    }
+
+    span {
+        position: absolute;
+        display: block;
+    }
+
+    & span:nth-child(1) {
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, $blue);
+        animation: btn-anim1 1s linear infinite;
+    }  
+    
+    & span:nth-child(2) {
+        top: -100%;
+        right: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(180deg, transparent, $blue);
+        animation: btn-anim2 1s linear infinite;
+        animation-delay: .25s
+    }    
+    
+    & span:nth-child(3) {
+        bottom: 0;
+        right: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(270deg, transparent, $blue);
+        animation: btn-anim3 1s linear infinite;
+        animation-delay: .5s
+    }
+    
+    & span:nth-child(4) {
+        bottom: -100%;
+        left: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(360deg, transparent, $blue);
+        animation: btn-anim4 1s linear infinite;
+        animation-delay: .75s
+    }
+}
+
+@keyframes btn-anim1 {
+    0% {
+    left: -100%;
+    }
+    50%,100% {
+    left: 100%;
+    }
+}
+@keyframes btn-anim2 {
+    0% {
+    top: -100%;
+    }
+    50%,100% {
+    top: 100%;
+    }
+}
+@keyframes btn-anim3 {
+    0% {
+    right: -100%;
+    }
+    50%,100% {
+    right: 100%;
+    }
+}
+@keyframes btn-anim4 {
+    0% {
+    bottom: -100%;
+    }
+    50%,100% {
+    bottom: 100%;
     }
 }
